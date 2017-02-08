@@ -3,9 +3,6 @@
 
 <head>
     <title>Homework Assignment </title>
-
-    <!--    //<link rel="stylesheet" type="text/javascript" href="HW4.js" />-->
-    <!--    <script type="text/javascript" src="HW4.js"></script>-->
     <style>
         html,
         body {
@@ -69,17 +66,17 @@
                     xmlhttp.open("GET", url, false); //open, send, responseXML are
                     xmlhttp.send(); //properties of XMLHTTPRequest
                 } catch (error) {
-                    window.alert("Something went wrong! <br> Loading xml file failed. Please check the URL again!");
+                    window.alert("Something went wrong! Loading xml file failed. Please check the URL again!");
                     return null;
                 }
                 if (xmlhttp.status == pageNotFound) {
-                    window.alert("Something went wrong! <br> Loading xml file failed. Please check the URL again!");
+                    window.alert("Something went wrong! Loading xml file failed. Please check the URL again!");
                     return null;
                 }
 
                 xmlDoc = xmlhttp.responseXML;
                 if (xmlDoc == null) {
-                    window.alert("Something went wrong! <br> Pasing xml file failed. Please try again!");
+                    window.alert("Something went wrong! Pasing xml file failed. Please try again!");
                     return null;
                 }
 
@@ -178,7 +175,7 @@
                 table_text += "<td>";
                 if (row_tags.item(5).childNodes.item(0)) {
                     table_text += "<img src='" +
-                        row_tags.item(5).childNodes.item(0).nodeValue + "'></img>";
+                        row_tags.item(5).childNodes.item(0).nodeValue + "' height='" + "150 px;" + "'></img>";
                 }
                 table_text += "</td>";
                 table_text += "</tr>";
@@ -188,20 +185,11 @@
 
             //xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
             var newWindow = window.open("", "", "width=600,height=500");
-            newWindow.document.write("<!DOCTYPE html>");
-            newWindow.document.write("<html><head><title>HomeWork 4</title>");
-            newWindow.document.write("<style>table,td,th table{ border-top: 2px solid #d3d3d3;border-left: 2px solid #d3d3d3;border-right: 2px solid black;border-bottom: 2px solid black;}th,td {border-right: 1px solid #d3d3d3;border-bottom: 1px solid #d3d3d3;border-top: 1px solid black;border-left: 1px solid black;} img{height:200px;}</style>");
-            newWindow.document.write("</head><body>");
-
-
-
-            newWindow.document.write("<table>");
-
-
+            newWindow.document.write("<!DOCTYPE html><html>");
+            newWindow.document.write("<head><title>HomeWork 4</title><style>table{ border-top: 2px solid #d3d3d3;border-left: 2px solid #d3d3d3;border-right: 2px solid black;border-bottom: 2px solid black;} th,td {border-right: 1px solid #d3d3d3;border-bottom: 1px solid #d3d3d3;border-top: 1px solid black;border-left: 1px solid black;}</style></head>");
+            newWindow.document.write("<body><table>");
             newWindow.document.write(table_text);
-            newWindow.document.write("</table></body>");
-            newWindow.document.write("</html>");
-
+            newWindow.document.write("</table></body></html>");
         }
     </script>
 
