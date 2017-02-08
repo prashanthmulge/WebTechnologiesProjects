@@ -46,7 +46,6 @@
     </style>
     <script type="application/javascript">
         function myFunction() {
-            document.getElementById("return").innerHTML = "You just clicked submit, still long way to go.";
             var url_t = document.getElementById("text_input").value;
             var url = url_t && url_t.trim();
             var xmlDoc;
@@ -66,17 +65,17 @@
                     xmlhttp.open("GET", url, false); //open, send, responseXML are
                     xmlhttp.send(); //properties of XMLHTTPRequest
                 } catch (error) {
-                    window.alert("Something went wrong! Loading xml file failed. Please check the URL again!");
+                    window.alert("ERROR!! Loading xml file failed. Please check the URL again!");
                     return null;
                 }
                 if (xmlhttp.status == pageNotFound) {
-                    window.alert("Something went wrong! Loading xml file failed. Please check the URL again!");
+                    window.alert("ERROR!! Loading xml file failed. Please check the URL again!");
                     return null;
                 }
 
                 xmlDoc = xmlhttp.responseXML;
                 if (xmlDoc == null) {
-                    window.alert("Something went wrong! Pasing xml file failed. Please try again!");
+                    window.alert("ERROR!! Pasing xml file failed. Please try again!");
                     return null;
                 }
 
@@ -204,7 +203,6 @@
             <br>
             <br>
             <input type="button" value="Submit Query" onclick="myFunction()" />
-            <p id="return">abcd</p>
         </form>
 
     </div>
