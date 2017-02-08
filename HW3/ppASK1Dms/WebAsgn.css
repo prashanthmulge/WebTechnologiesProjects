@@ -1,0 +1,255 @@
+ html,
+ body {
+     margin: 0;
+     padding: 0;
+     width: 650px;
+     height: 100%;
+     display: table;
+     font-family: ariel;
+     margin-left: auto;
+     margin-right: auto;
+     font-family: Helvetica, sans-serif;
+ }
+ 
+ .mainpage {
+     display: table-cell;
+     text-align: center;
+     padding-top: 50px;
+     /*                vertical-align: middle;*/
+ }
+ 
+ .FirstBox {
+     background-color: #191919;
+     display: inline-block;
+     text-align: left;
+     color: white;
+     height: 150px;
+     width: 240px;
+ }
+ 
+ .B1T1 {
+     color: white;
+     font-size: 8px;
+     padding-top: 30px;
+     text-align: center;
+     letter-spacing: 2.9px;
+ }
+ 
+ .B1T2 {
+     color: white;
+     font-size: 30px;
+     text-align: center;
+     letter-spacing: 0px;
+     padding: 0;
+     padding-top: 0;
+     padding-bottom: 0;
+     margin-top: 0;
+     margin-bottom: 0;
+ }
+ 
+ .SecondBox {
+     padding-top: 30px;
+     text-align: center;
+     height: 195px;
+     width: 100%;
+     position: relative;
+ }
+ 
+ .images {
+     padding-top: 25px;
+     z-index: 1;
+     position: absolute;
+     align: center;
+     top: 0;
+     margin-left: auto;
+     margin-right: auto;
+     left: 0;
+     right: 0;
+ }
+ 
+ imageLink {
+     text-align: center;
+     width: 100%;
+     height: 200px;
+ }
+ 
+ hr {
+     margin-bottom: 0;
+ }
+ 
+ .merge1 {
+     padding-top: 40px;
+     font-size: 7px;
+     letter-spacing: 2.9px;
+     padding-bottom: 5px;
+ }
+ 
+ .merge2 {
+     margin-bottom: 0;
+     margin-top: 0;
+     font-size: 10px;
+     padding-bottom: 10px;
+ }
+ 
+ .boxed {
+     padding-top: 12px;
+     position: absolute;
+     z-index: 2;
+     margin-left: auto;
+     margin-right: auto;
+     left: 0;
+     right: 0;
+     border: 2px solid black;
+     width: 150px;
+     height: 20px;
+     text-align: center;
+     font-size: 7px;
+     margin: auto;
+     vertical-align: middle;
+     letter-spacing: 2.9px;
+     color: black;
+ }
+ 
+ .article {
+     font-size: 6px;
+     color: white;
+     text-align: center;
+     letter-spacing: 2.9px;
+     margin-left: auto;
+     margin-right: auto;
+     left: 0;
+     right: 0;
+ }
+ 
+ .FirstTable {
+     background-color: #191919;
+     margin: auto;
+     border-collapse: collapse;
+     border: 0.1px solid #303030;
+ }
+ 
+ .SecondTable {
+     background-color: #191919;
+     margin: auto;
+ }
+ 
+ .text {
+     height: 30px;
+     width: 190px;
+     font-size: 9px;
+ }
+ 
+ .signupText {
+     letter-spacing: 2.9px;
+     color: white;
+     font-size: 6px;
+     text-align: left;
+     padding-left: 44px;
+ }
+ 
+ .SignupBoxed {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     padding-left: 30px;
+     padding-right: 30px;
+     border: 2px solid white;
+     text-align: center;
+     font-size: 6px;
+     margin: auto;
+     vertical-align: middle;
+     letter-spacing: 2.9px;
+     color: white;
+     background-color: #191919;
+ }
+ 
+ .noSpace {
+     margin-bottom: 2px;
+     margin-top: 2px;
+ }
+ 
+ .FirstBlock {
+     color: white;
+     font-size: 8px;
+     text-align: left;
+     padding-left: 15px;
+     margin-top: -10px;
+ }
+ 
+ .SecondBlock {
+     color: white;
+     font-size: 8px;
+     text-align: left;
+     padding-left: 10px;
+ }
+ 
+ .ThirdBlock {
+     color: white;
+     font-size: 8px;
+     text-align: left;
+     padding-left: 10px;
+ }
+ 
+ .FourthBlock {
+     color: white;
+     font-size: 8px;
+     text-align: left;
+     padding-left: 10px;
+ }
+ 
+ .FifthBlock {
+     color: white;
+     font-size: 8px;
+     text-align: left;
+     padding-left: 10px;
+ }
+ 
+ .ContactUs {
+     background-color: #191919;
+     padding-top: 7px;
+     padding-bottom: 7px;
+     padding-left: 10px;
+     padding-right: 10px;
+     border: 2px solid white;
+     text-align: center;
+     font-size: 5px;
+     margin: auto;
+     vertical-align: middle;
+     letter-spacing: 2.9px;
+     color: white;
+ }
+ 
+ a:link,
+ a:visited {
+     color: white;
+     text-decoration: none;
+ }
+ 
+ a:link:active,
+ a:visited:active {
+     color: white;
+ }
+ 
+ .readmelink:hover,
+ .readmelink:focus {
+     text-decoration: underline;
+ }
+ 
+ .boxed:hover {
+     background-color: black;
+     color: white;
+ }
+ 
+ .SignupBoxed:hover {
+     background-color: white;
+     color: black;
+ }
+ 
+ .ContactUs:hover {
+     background-color: white;
+     color: black;
+ }
+ 
+ .Num-underline {
+     padding-bottom: 2px;
+     border-bottom: white 3px solid;
+ }

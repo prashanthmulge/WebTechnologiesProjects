@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Homework Assignment </title>
+
+    <!--    //<link rel="stylesheet" type="text/javascript" href="HW4.js" />-->
+    <!--    <script type="text/javascript" src="HW4.js"></script>-->
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: auto;
+            height: 100%;
+            display: table;
+            font-family: ariel;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .block {
+            top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding-top: 100px;
+        }
+        
+        .headlin {
+            font-size: 17px;
+            font-weight: bold;
+            top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+        
+        #text_input {
+            top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+    </style>
+    <script type="application/javascript">
+        function myFunction() {
+            document.getElementById("return").innerHTML = "You just clicked submit, still long way to go.";
+            var url_t = document.getElementById("text_input").value;
+            var url = url_t && url_t.trim();
+            var xmlDoc;
+            //            window.alert(url);
+            function loadXML(url) {
+                var xmlhttp;
+                var pageNotFound = 404;
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                try {
+                    xmlhttp.open("GET", url, false); //open, send, responseXML are
+                    xmlhttp.send(); //properties of XMLHTTPRequest
+                } catch (error) {
+                    window.alert("Something went wrong! <br> Loading xml file failed. Please check the URL again!");
+                    return null;
+                }
+                if (xmlhttp.status == pageNotFound) {
+                    window.alert("Something went wrong! <br> Loading xml file failed. Please check the URL again!");
+                    return null;
+                }
+
+                xmlDoc = xmlhttp.responseXML;
+                if (xmlDoc == null) {
+                    window.alert("Something went wrong! <br> Pasing xml file failed. Please try again!");
+                    return null;
+                }
+
+                return xmlDoc;
+            }
+
+
+            if (loadXML(url) == null) {
+                return null;
+            }
+
+            firstTag = xmlDoc.documentElement;
+            if (firstTag.nodeName != "Mainline") {
+                alert("Error in parsing, Mainline Tag is missing");
+                return;
+            }
+            secondTag = firstTag.childNodes;
+            if (secondTag == null) {
+                alert("Error in parsing, Mainline tag is empty");
+                return;
+            }
+            if (secondTag.item(0).nodeName != "Table") {
+                alert("Error in parsing, Table tag is missing");
+                return;
+            }
+
+            var xml_header = xmlDoc.getElementsByTagName('Header')[0].childNodes;
+            if (!xml_header || xml_header.length == 0) {
+                alert("Error in parsing, Header is empty");
+                return;
+            }
+            var table_text = "<tr>";
+            var new_ele;
+            var i;
+            for (i = 0; i < xml_header.length; i++) {
+                if (xml_header.item(i).nodeType == 1) {
+                    table_text += "<th>" + xml_header.item(i).firstChild.nodeValue + "</th>";
+                }
+            }
+
+            table_text += "</tr>";
+            // output out the values
+            var row_text = xmlDoc.getElementsByTagName('Row');
+            if (row_text.length == 0) {
+                alert("Error in parsing, Row Tag is missing");
+                return;
+            }
+            for (m = 0; m < row_text.length; m++) {
+                table_text += "<tr>";
+                var row_tags = row_text.item(m).childNodes;
+                table_text += "<td>";
+                if (row_tags.item(0).childNodes.item(0)) {
+                    table_text += row_tags.item(0).childNodes.item(0).nodeValue;
+                }
+                table_text += "</td>";
+                table_text += "<td>";
+                if (row_tags.item(1).childNodes.item(0)) {
+                    table_text += row_tags.item(1).childNodes.item(0).nodeValue;
+                }
+                table_text += "</td>";
+                table_text += "<td>";
+                table_text += "<ul>"
+                var hub_tags = row_tags.item(2).childNodes;
+                for (n = 0; n < hub_tags.length; n++) {
+                    table_text += "<li>"
+                    if (n == 0) {
+                        if (hub_tags.item(0).childNodes.item(0)) {
+                            table_text += "<b>"
+                            table_text += hub_tags.item(0).childNodes.item(0).nodeValue;
+                            table_text += "</b>"
+                        }
+
+                    } else {
+                        if (hub_tags.item(n).childNodes.item(0)) {
+                            table_text += hub_tags.item(n).childNodes.item(0).nodeValue;
+                        }
+
+                    }
+                    table_text += "</li>"
+                }
+                table_text += "</ul>"
+                table_text += "</td>";
+
+                table_text += "<td>";
+                if (row_tags.item(3).childNodes.item(0)) {
+                    table_text += row_tags.item(3).childNodes.item(0).nodeValue;
+                }
+                table_text += "</td>";
+                table_text += "<td>";
+                if (row_tags.item(4).childNodes.item(0)) {
+
+                    table_text += "<a href=" +
+                        row_tags.item(4).childNodes.item(0).nodeValue + ">" + row_tags.item(4).childNodes.item(0).nodeValue + "</a>";
+                }
+                table_text += "</td>";
+                table_text += "<td>";
+                if (row_tags.item(5).childNodes.item(0)) {
+                    table_text += "<img src='" +
+                        row_tags.item(5).childNodes.item(0).nodeValue + "'></img>";
+                }
+                table_text += "</td>";
+                table_text += "</tr>";
+
+            }
+
+
+            //xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            var newWindow = window.open("", "", "width=600,height=500");
+            newWindow.document.write("<!DOCTYPE html>");
+            newWindow.document.write("<html><head><title>HomeWork 4</title>");
+            newWindow.document.write("<style>table,td,th table{ border-top: 2px solid #d3d3d3;border-left: 2px solid #d3d3d3;border-right: 2px solid black;border-bottom: 2px solid black;}th,td {border-right: 1px solid #d3d3d3;border-bottom: 1px solid #d3d3d3;border-top: 1px solid black;border-left: 1px solid black;} img{height:200px;}</style>");
+            newWindow.document.write("</head><body>");
+
+
+
+            newWindow.document.write("<table>");
+
+
+            newWindow.document.write(table_text);
+            newWindow.document.write("</table></body>");
+            newWindow.document.write("</html>");
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="block">
+        <form id="frm1" action="form_action.asp">
+            <p class="headlin">Enter URL for Airlines List XML File</p>
+            <input id="text_input" type="text" placeholder="XML link" />
+            <br>
+            <br>
+            <input type="button" value="Submit Query" onclick="myFunction()" />
+            <p id="return">abcd</p>
+        </form>
+
+    </div>
+</body>
+
+</html>
